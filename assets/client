@@ -1,0 +1,2 @@
+// Vite HMR Client placeholder (disabled for static deployment)
+console.log("[Portfolio] Production mode active. Live client modules initialized.");
