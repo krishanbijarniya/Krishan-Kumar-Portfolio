@@ -959,47 +959,6 @@
     </footer>
 
     <!-- Existing portfolio JavaScript -->
-    <script type="module" src="./assets/main.js.download"></script>
-
-    <!-- Project filtering fallback/extension -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const cards = [...document.querySelectorAll(".project-card")];
-            const buttons = [...document.querySelectorAll(".filter-btn")];
-            const search = document.getElementById("project-search");
-
-            function applyFilters() {
-                const activeButton = document.querySelector(".filter-btn.active");
-                const filter = activeButton ? activeButton.dataset.filter : "all";
-                const query = (search?.value || "").trim().toLowerCase();
-
-                cards.forEach(card => {
-                    const categories = (card.dataset.category || "").split(/\s+/);
-                    const tech = (card.dataset.tech || "").toLowerCase();
-                    const title = (card.querySelector(".project-title")?.textContent || "").toLowerCase();
-                    const desc = (card.querySelector(".project-desc")?.textContent || "").toLowerCase();
-
-                    const categoryMatch = filter === "all" || categories.includes(filter);
-                    const searchMatch =
-                        !query ||
-                        tech.includes(query) ||
-                        title.includes(query) ||
-                        desc.includes(query);
-
-                    card.style.display = categoryMatch && searchMatch ? "flex" : "none";
-                });
-            }
-
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    buttons.forEach(btn => btn.classList.remove("active"));
-                    button.classList.add("active");
-                    applyFilters();
-                });
-            });
-
-            search?.addEventListener("input", applyFilters);
-        });
-    </script>
+    <script src="./assets/main.js"></script>
 </body>
 </html>
